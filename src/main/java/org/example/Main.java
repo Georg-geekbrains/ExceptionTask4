@@ -2,20 +2,16 @@ package org.example;
 
 import java.util.Scanner;
 
-class EmptyStringException extends Exception {
-    public EmptyStringException(String message) {
-        super(message);
-    }
-}
+
 
 public class Main {
     public static void main(String[] args) {
         try {
             String userInput = getUserInput();
             if (userInput.isEmpty()) {
-                throw new EmptyStringException("Empty strings should not be entered.");
+                throw new EmptyStringException("Пустая строка не допустима.");
             } else {
-                System.out.println("You entered: " + userInput);
+                System.out.println("Ваша строка: " + userInput);
             }
         } catch (EmptyStringException e) {
             System.out.println(e.getMessage());
@@ -24,7 +20,7 @@ public class Main {
 
     public static String getUserInput() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
+        System.out.print("Введите строку: ");
         String input = scanner.nextLine();
         scanner.close();
         return input;
